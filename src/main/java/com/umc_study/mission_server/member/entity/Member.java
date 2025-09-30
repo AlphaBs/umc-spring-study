@@ -44,7 +44,7 @@ public class Member extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 16)
-    private MemberSex sex;
+    private MemberGender sex;
 
     @Column
     private LocalDate birthday;
