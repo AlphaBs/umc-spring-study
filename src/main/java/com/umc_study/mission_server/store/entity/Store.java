@@ -14,20 +14,20 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 256)
+    @Column(length = 256, nullable = false)
     private String name;
 
-    @Column(length = 256)
+    @Column(length = 256, nullable = false)
     private String address1;
 
-    @Column(length = 256)
+    @Column(length = 256, nullable = true)
     private String address2;
 
     @Lob
-    @Column(name = "operating_table", columnDefinition = "TEXT")
+    @Column(name = "operating_table", columnDefinition = "TEXT", nullable = true)
     private String operatingTable;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "food_type_id")
+    @JoinColumn(name = "food_type_id", nullable = false)
     private FoodType foodType;
 }

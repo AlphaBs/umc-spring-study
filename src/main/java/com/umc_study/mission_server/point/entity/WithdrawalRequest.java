@@ -17,14 +17,14 @@ public class WithdrawalRequest extends BaseEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 16)
+    @Column(length = 16, nullable = false)
     private WithdrawalRequestState state;
 
-    @Column(name = "abs_point")
+    @Column(name = "abs_point", nullable = false)
     private Long absPoint;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 
 }

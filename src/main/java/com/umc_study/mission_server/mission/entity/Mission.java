@@ -18,22 +18,24 @@ public class Mission {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private Long point;
 
+    @Column(nullable = true)
     private Long money;
 
-    @Column
+    @Column(nullable = true)
     private LocalDateTime due;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 8)
+    @Column(length = 8, nullable = false)
     private MissionState state;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "store_id")
+    @JoinColumn(name = "store_id", nullable = false)
     private Store store;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 }

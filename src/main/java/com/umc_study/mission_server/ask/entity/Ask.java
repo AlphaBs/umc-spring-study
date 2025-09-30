@@ -19,22 +19,22 @@ public class Ask extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 256)
+    @Column(length = 256, nullable = false)
     private String title;
 
     @Lob
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
     @Lob
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT", nullable = true)
     private String reply;
 
-    @Column(length = 16)
+    @Column(length = 16, nullable = false)
     private String type;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "author_id")
+    @JoinColumn(name = "author_id", nullable = false)
     private Member author;
 
     @OneToMany(mappedBy = "ask", cascade = CascadeType.ALL, orphanRemoval = true)

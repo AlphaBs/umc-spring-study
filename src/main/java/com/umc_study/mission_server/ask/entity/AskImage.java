@@ -14,10 +14,10 @@ public class AskImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "image_url", length = 1024)
+    @Column(name = "image_url", length = 1024, nullable = false)
     private String imageUrl;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ask_id")
+    @JoinColumn(name = "ask_id", nullable = false)
     private Ask ask;
 }
